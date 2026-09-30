@@ -8,11 +8,5 @@
     <LangVersion>latest</LangVersion>
     <AssemblyName>PremiumTools</AssemblyName>
     <RootNamespace>PremiumTools</RootNamespace>
-    <ApplicationIcon>app.ico</ApplicationIcon>
-    <UseWindowsForms>false</UseWindowsForms>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Resource Include="Assets\**\*" />
-  </ItemGroup>
 </Project>

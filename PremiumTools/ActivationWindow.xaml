@@ -1,0 +1,52 @@
+<Window x:Class="PremiumTools.ActivationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Premium Tools - Activation"
+        Width="520"
+        Height="380"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#040b14"
+        Foreground="#eaf6ff"
+        WindowStyle="SingleBorderWindow">
+    <Grid Background="#040b14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Padding="22,18,22,8" BorderBrush="#1b2d48" BorderThickness="0,0,0,1" Background="#050d1b">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Border Width="42" Height="42" CornerRadius="10" Background="#0b1b34" BorderBrush="#1ee9ff" BorderThickness="2">
+                    <TextBlock Text="⚡" Foreground="#1ee9ff" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Border>
+                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="PREMIUM TOOLS" Foreground="#e7f7ff" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock Text="Version v1.0" Foreground="#5cb7d4" FontSize="10" Margin="0,2,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Content -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="420" Spacing="14">
+            <TextBlock Text="Enter Activation Key" Foreground="#edf7ff" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Enter the activation key to unlock the gaming optimizer dashboard." Foreground="#8ea0b0" FontSize="12" TextAlignment="Center" TextWrapping="Wrap"/>
+
+            <Border Background="#0d1727" BorderBrush="#1b2d48" BorderThickness="1" CornerRadius="10" Padding="2">
+                <PasswordBox x:Name="KeyPasswordBox" Height="44" FontSize="18" Background="#0b1320" Foreground="#edf7ff" BorderThickness="0" VerticalContentAlignment="Center" Padding="12,0,12,0"/>
+            </Border>
+
+            <TextBlock Text="Hint: godego" Foreground="#63e0ff" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- Footer Buttons -->
+        <Border Grid.Row="2" Padding="22,12,22,16" BorderBrush="#1b2d48" BorderThickness="0,1,0,0" Background="#050d1b">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+                <Button Width="140" Height="40" Content="CANCEL" Background="#101d2a" Foreground="#edf7ff" BorderBrush="#1b2d48" BorderThickness="1" CornerRadius="8" FontWeight="Bold" FontSize="12" Cursor="Hand" Click="CancelButton_Click"/>
+                <Button Width="140" Height="40" Content="UNLOCK" Background="#0a2133" Foreground="#76e7ff" BorderBrush="#1ee9ff" BorderThickness="1" CornerRadius="8" FontWeight="Bold" FontSize="12" Cursor="Hand" Click="UnlockButton_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

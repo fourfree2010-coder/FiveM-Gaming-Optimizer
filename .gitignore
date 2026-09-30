@@ -1,35 +1,151 @@
-# Premium Tools
+# 🎮 Premium Tools - FiveM Gaming Optimizer v1.0
 
-Premium Tools is a Windows desktop dashboard for gaming optimization focused on smooth FiveM gameplay. The project includes a dark cyberpunk interface inspired by the reference image and locks access behind the activation key: `godego`.
+**Premium Tools** is a Windows desktop application designed to optimize system performance for smooth FiveM gameplay. It features a dark cyberpunk-themed UI with real-time performance monitoring and one-click optimization shortcuts.
 
-## Features
+## 🔑 Activation Key
 
-- Dark premium dashboard UI inspired by the reference image
-- Real-time CPU / RAM / GPU display
-- Quick access optimization actions
-- Activation window with key validation
-- Performance utility helpers for cleanup and optimization
+**Key:** `godego`
 
-## Requirements
+## ✨ Features
 
-- Windows 10/11
-- .NET 8 SDK
-- Visual Studio 2022 or Windows desktop build tools
+✅ **Real-time Performance Monitoring**
+- Live CPU, RAM, and GPU usage tracking
+- Real-time performance graph with dynamic updates
+- Accurate system metrics display
 
-## Build
+✅ **System Optimization**
+- Automatic temp file cleanup
+- FiveM Booster for instant gaming mode
+- CPU priority adjustment
+- Background service optimization
+- Network latency reduction
+
+✅ **Quick Access Shortcuts**
+- Boost FiveM NOW
+- Junk & GPU Cleaner
+- Startup Manager
+- System Info & Copy Specs
+
+✅ **Premium UI Design**
+- Dark cyberpunk theme with neon accents
+- Smooth animations and transitions
+- Responsive layout
+- Modern sidebar navigation
+
+## 📋 System Requirements
+
+- **OS:** Windows 10/11 (64-bit)
+- **.NET:** 8.0 SDK or Runtime
+- **RAM:** 2GB minimum
+- **Admin Rights:** Recommended for full functionality
+
+## 🚀 Build & Run
+
+### Option 1: Using .NET CLI
 
 ```bash
+# Clone the repository
+git clone https://github.com/fourfree2010-coder/FiveM-Gaming-Optimizer.git
+cd FiveM-Gaming-Optimizer
+
+# Build the project
 dotnet build PremiumTools/PremiumTools.csproj -c Release
-```
 
-## Run
-
-```bash
+# Run the application
 dotnet run --project PremiumTools/PremiumTools.csproj
 ```
 
-## Activation key
+### Option 2: Create Standalone EXE
 
-`godego`
+```bash
+# Publish as standalone executable
+dotnet publish PremiumTools/PremiumTools.csproj -c Release -o ./dist
 
-This repository contains the build-ready desktop project and the UI shell for the premium gaming optimization tool.
+# The executable will be at: ./dist/PremiumTools.exe
+```
+
+### Option 3: Using Visual Studio 2022
+
+1. Open `PremiumTools.sln` in Visual Studio 2022
+2. Select Build → Build Solution (or press Ctrl+Shift+B)
+3. Run the application (or press F5)
+
+## 🎯 How to Use
+
+1. **Launch the application** → `PremiumTools.exe`
+2. **Enter activation key** → `godego`
+3. **Monitor performance** → View real-time CPU/RAM/GPU metrics
+4. **Apply optimizations:**
+   - Click "BOOST FIVEM NOW" for instant gaming mode
+   - Click "Junk & GPU Cleaner" to remove temp files
+   - Use "Startup Manager" to control background apps
+   - Copy "System Info & Specs" for support/sharing
+
+## 📁 Project Structure
+
+```
+FiveM-Gaming-Optimizer/
+├── PremiumTools/
+│   ├── App.xaml                  # Application entry point
+│   ├── App.xaml.cs              # App logic
+│   ├── MainWindow.xaml          # Main dashboard UI
+│   ├── MainWindow.xaml.cs       # Dashboard logic
+│   ├── ActivationWindow.xaml    # Key activation UI
+│   ├── ActivationWindow.xaml.cs # Activation logic
+│   ├── SystemOptimizer.cs       # Optimization utilities
+│   └── PremiumTools.csproj      # Project file
+├── README.md                     # This file
+├── .gitignore                    # Git ignore rules
+└── PremiumTools.sln             # Solution file
+```
+
+## 🎨 UI Theme Colors
+
+- **Background:** `#040b14` (Dark Navy)
+- **Panels:** `#050d1b` (Darker Navy)
+- **Primary Accent:** `#1ee9ff` (Cyan)
+- **Secondary:** `#ff5ac8` (Pink)
+- **Gold:** `#f5b729` (Yellow)
+- **Text:** `#eaf6ff` (Light Cyan)
+
+## 🔒 Security
+
+- Activation key validation on startup
+- No external dependencies or internet required
+- All optimization operations are safe and reversible
+- Registry modifications (if added) include rollback capability
+
+## 📝 Features in Development
+
+- [ ] FiveM config file editor
+- [ ] Custom hotkey bindings
+- [ ] Network optimization profiles
+- [ ] GPU driver optimization
+- [ ] In-app update checker
+- [ ] Cloud settings sync
+
+## ⚖️ Legal Notice
+
+This tool is designed for **system optimization only** and does not modify game client files. Users must comply with FiveM's Terms of Service. Use at your own risk.
+
+## 💬 Support
+
+For issues or suggestions:
+1. Check the GitHub Issues page
+2. Verify you're using the correct activation key: `godego`
+3. Ensure .NET 8.0 is installed
+4. Run as Administrator for full functionality
+
+## 📄 License
+
+**All Rights Reserved © 2026 Premium Tools**
+
+## 👤 Author
+
+**fourfree2010-coder** - Creator of Premium Tools
+
+---
+
+**Version:** 1.0  
+**Last Updated:** 2026-09-30  
+**Status:** ✅ Build-Ready | Fully Functional

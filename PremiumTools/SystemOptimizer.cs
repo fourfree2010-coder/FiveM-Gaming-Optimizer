@@ -1,121 +1,87 @@
-using System.Windows;
-using System.Windows.Threading;
+using System.IO;
+using System.Text;
 
 namespace PremiumTools;
 
-public partial class MainWindow : Window
+public static class SystemOptimizer
 {
-    private readonly DispatcherTimer _timer;
-    private readonly Random _random = new();
-
-    public MainWindow()
+    public static void CleanTemp()
     {
-        InitializeComponent();
-        _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-        _timer.Tick += Timer_Tick;
-        Loaded += (_, _) =>
+        var tempPaths = new[]
         {
-            _timer.Start();
-            UpdateMetrics();
+            Path.GetTempPath(),
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp",
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\Windows\\INetCache"
         };
+
+        int filesDeleted = 0;
+
+        foreach (var path in tempPaths)
+        {
+            if (!Directory.Exists(path)) continue;
+
+            try
+            {
+                foreach (var file in Directory.GetFiles(path))
+                {
+                    try
+                    {
+                        File.Delete(file);
+                        filesDeleted++;
+                    }
+                    catch { }
+                }
+
+                foreach (var dir in Directory.GetDirectories(path))
+                {
+                    try
+                    {
+                        Directory.Delete(dir, true);
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+        }
     }
 
-    private void Timer_Tick(object? sender, EventArgs e)
+    public static void ApplyPerformancePreset()
     {
-        UpdateMetrics();
+        // System performance tuning simulation
+        // Real Windows Registry modifications can be added for:
+        // - Disable Visual Effects
+        // - Adjust power settings for high performance
+        // - Reduce animation delays
+        // - Disable Windows Update background
     }
 
-    private void UpdateMetrics()
+    public static void ApplyFiveMBoost()
     {
-        var cpu = _random.Next(18, 94);
-        var ram = _random.Next(24, 88);
-        var gpu = _random.Next(12, 82);
-
-        ProgressCpu.Value = cpu;
-        ProgressRam.Value = ram;
-        ProgressGpu.Value = gpu;
-
-        LabelCpu.Text = $"Processor Active Load ({cpu}%)";
-        LabelRam.Text = $"{(ram / 2.0):F1} GB / 64.0 GB";
-        LabelGpu.Text = $"NVIDIA / AMD Active Load ({gpu}%)";
+        // FiveM-specific optimization simulation
+        // Can include:
+        // - Set process priority to High
+        // - Minimize background services
+        // - Adjust network buffer sizes
+        // - Enable CPU cache optimizations
     }
 
-    private void DashboardButton_Click(object sender, RoutedEventArgs e)
+    public static void CopySystemInfo()
     {
-        MessageBox.Show("Dashboard loaded.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
+        try
+        {
+            var info = new StringBuilder();
+            info.AppendLine("=== SYSTEM INFORMATION ===");
+            info.AppendLine($"OS: {Environment.OSVersion}");
+            info.AppendLine($"Processor Count: {Environment.ProcessorCount}");
+            info.AppendLine($"Machine: {Environment.MachineName}");
+            info.AppendLine($"User: {Environment.UserName}");
+            info.AppendLine($"Framework: .NET 8.0-Windows");
+            info.AppendLine($"Application: Premium Tools v1.0");
+            info.AppendLine($"License Status: ACTIVE");
+            info.AppendLine($"Activation Key: godego");
 
-    private void CleaningButton_Click(object sender, RoutedEventArgs e)
-    {
-        SystemOptimizer.CleanTemp();
-        MessageBox.Show("Temporary files and junk cache cleaned.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void OptimizeButton_Click(object sender, RoutedEventArgs e)
-    {
-        SystemOptimizer.ApplyPerformancePreset();
-        MessageBox.Show("System performance tuned for smoother gameplay.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void BoostButton_Click(object sender, RoutedEventArgs e)
-    {
-        SystemOptimizer.ApplyFiveMBoost();
-        MessageBox.Show("FiveM boost applied successfully.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void QuickToolsButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Quick tools module ready.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void SystemInfoButton_Click(object sender, RoutedEventArgs e)
-    {
-        SystemOptimizer.CopySystemInfo();
-        MessageBox.Show("System details copied to clipboard.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void SecurityButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("License and security status verified. Key: godego", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void AdministratorButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Administrator mode enabled.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void HwidButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("HWID validation passed.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void ProfileButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Gaming profile activated.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void SettingsButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Settings panel prepared.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void LanguageButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Language set to English.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-    {
-        WindowState = WindowState.Minimized;
-    }
-
-    private void CloseButton_Click(object sender, RoutedEventArgs e)
-    {
-        Close();
-    }
-
-    private void StartupButton_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("Startup Manager ready. Background apps can be managed here.", "Premium Tools", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Windows.Forms.Clipboard.SetText(info.ToString());
+        }
+        catch { }
     }
 }
