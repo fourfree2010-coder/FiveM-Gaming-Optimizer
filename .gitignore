@@ -1,0 +1,27 @@
+# Build results
+bin/
+obj/
+.vs/
+
+# Visual Studio
+*.sln.iml
+.vscode/
+
+# Dependencies
+packages/
+.nuget/
+
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
