@@ -1,27 +1,35 @@
-# Build results
-bin/
-obj/
-.vs/
+# Premium Tools
 
-# Visual Studio
-*.sln.iml
-.vscode/
+Premium Tools is a Windows desktop dashboard for gaming optimization focused on smooth FiveM gameplay. The project includes a dark cyberpunk interface inspired by the reference image and locks access behind the activation key: `godego`.
 
-# Dependencies
-packages/
-.nuget/
+## Features
 
-# Build artifacts
-*.exe
-*.dll
-*.pdb
+- Dark premium dashboard UI inspired by the reference image
+- Real-time CPU / RAM / GPU display
+- Quick access optimization actions
+- Activation window with key validation
+- Performance utility helpers for cleanup and optimization
 
-# IDE
-.idea/
-*.swp
-*.swo
-*~
+## Requirements
 
-# OS
-.DS_Store
-Thumbs.db
+- Windows 10/11
+- .NET 8 SDK
+- Visual Studio 2022 or Windows desktop build tools
+
+## Build
+
+```bash
+dotnet build PremiumTools/PremiumTools.csproj -c Release
+```
+
+## Run
+
+```bash
+dotnet run --project PremiumTools/PremiumTools.csproj
+```
+
+## Activation key
+
+`godego`
+
+This repository contains the build-ready desktop project and the UI shell for the premium gaming optimization tool.
